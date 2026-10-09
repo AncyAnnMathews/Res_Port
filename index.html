@@ -8,63 +8,63 @@
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- Chart.js for Data Visualizations -->
+  <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
-    /* --- CSS VARIABLES & THEME CONFIGURATION --- */
     :root {
-      --bg-color: #0d1117;
-      --card-bg: #161b22;
-      --text-color: #c9d1d9;
-      --text-heading: #f0f6fc;
-      --accent-color: #00f2fe;
-      --accent-gradient: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
-      --border-color: #30363d;
-      --secondary-text: #8b949e;
-      --nav-bg: rgba(22, 27, 34, 0.85);
-      --box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
-      --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      --bg-color: #0b0f19;
+      --card-bg: #111827;
+      --card-border: #1f2937;
+      --text-heading: #f9fafb;
+      --text-body: #9ca3af;
+      --text-muted: #6b7280;
+      --accent: #6366f1;
+      --accent-light: #818cf8;
+      --accent-bg: rgba(99, 102, 241, 0.1);
+      --border-color: #1f2937;
+      --nav-bg: rgba(11, 15, 25, 0.9);
+      --transition: all 0.25s ease-in-out;
     }
 
     [data-theme="light"] {
-      --bg-color: #f6f8fa;
+      --bg-color: #f8fafc;
       --card-bg: #ffffff;
-      --text-color: #24292f;
+      --card-border: #e2e8f0;
       --text-heading: #0f172a;
-      --accent-color: #0284c7;
-      --accent-gradient: linear-gradient(135deg, #0284c7 0%, #2563eb 100%);
-      --border-color: #e1e4e8;
-      --secondary-text: #57606a;
-      --nav-bg: rgba(255, 255, 255, 0.85);
-      --box-shadow: 0 8px 24px rgba(149, 157, 165, 0.15);
+      --text-body: #475569;
+      --text-muted: #64748b;
+      --accent: #4f46e5;
+      --accent-light: #6366f1;
+      --accent-bg: rgba(79, 70, 229, 0.08);
+      --border-color: #e2e8f0;
+      --nav-bg: rgba(248, 250, 252, 0.9);
     }
 
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       scroll-behavior: smooth;
     }
 
     body {
       background-color: var(--bg-color);
-      color: var(--text-color);
+      color: var(--text-body);
       line-height: 1.6;
       transition: var(--transition);
       overflow-x: hidden;
     }
 
-    /* --- LAYOUT & CONTAINERS --- */
     .container {
-      max-width: 1100px;
+      max-width: 1050px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 24px;
     }
 
     section {
-      padding: 80px 0;
+      padding: 90px 0;
       border-bottom: 1px solid var(--border-color);
     }
 
@@ -74,7 +74,7 @@
       top: 0;
       width: 100%;
       background: var(--nav-bg);
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px);
       z-index: 1000;
       border-bottom: 1px solid var(--border-color);
     }
@@ -83,96 +83,116 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 70px;
+      height: 72px;
     }
 
     .logo {
-      font-size: 1.4rem;
+      font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-heading);
       text-decoration: none;
+      letter-spacing: -0.02em;
     }
 
     .logo span {
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
+      color: var(--accent);
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 28px;
       list-style: none;
       align-items: center;
     }
 
     .nav-links a {
-      color: var(--text-color);
+      color: var(--text-body);
       text-decoration: none;
       font-weight: 500;
+      font-size: 0.92rem;
       transition: var(--transition);
     }
 
     .nav-links a:hover {
-      color: var(--accent-color);
+      color: var(--text-heading);
     }
 
     .theme-toggle {
       background: none;
-      border: none;
-      color: var(--text-color);
-      font-size: 1.2rem;
+      border: 1px solid var(--border-color);
+      color: var(--text-body);
+      padding: 8px 12px;
+      border-radius: 6px;
       cursor: pointer;
-      padding: 5px;
+      font-size: 0.9rem;
       transition: var(--transition);
+    }
+
+    .theme-toggle:hover {
+      color: var(--text-heading);
+      border-color: var(--accent);
     }
 
     /* --- HERO SECTION --- */
     .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 100px;
+      padding-top: 160px;
+      padding-bottom: 100px;
     }
 
-    .hero-content {
+    .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 40px;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 48px;
       align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent-bg);
+      color: var(--accent-light);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid rgba(99, 102, 241, 0.2);
     }
 
     .hero-text h1 {
-      font-size: 3rem;
+      font-size: 2.75rem;
       color: var(--text-heading);
-      margin-bottom: 10px;
-      line-height: 1.2;
+      margin-bottom: 12px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
     }
 
     .hero-text h2 {
-      font-size: 1.5rem;
-      background: var(--accent-gradient);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin-bottom: 20px;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-bottom: 24px;
     }
 
     .hero-text p {
       font-size: 1.05rem;
-      margin-bottom: 30px;
-      color: var(--secondary-text);
+      color: var(--text-body);
+      margin-bottom: 32px;
+      max-width: 620px;
     }
 
     .hero-cta {
       display: flex;
-      gap: 15px;
+      gap: 16px;
       flex-wrap: wrap;
     }
 
     .btn {
-      padding: 12px 28px;
+      padding: 12px 24px;
       border-radius: 6px;
       font-weight: 600;
+      font-size: 0.92rem;
       text-decoration: none;
       transition: var(--transition);
       display: inline-flex;
@@ -182,97 +202,108 @@
     }
 
     .btn-primary {
-      background: var(--accent-gradient);
+      background: var(--accent);
       color: #ffffff;
-      border: none;
+      border: 1px solid var(--accent);
     }
 
     .btn-primary:hover {
-      opacity: 0.9;
-      transform: translateY(-2px);
+      background: var(--accent-light);
     }
 
     .btn-outline {
       border: 1px solid var(--border-color);
       color: var(--text-heading);
-      background: transparent;
+      background: var(--card-bg);
     }
 
     .btn-outline:hover {
+      border-color: var(--text-muted);
+    }
+
+    /* Strategic Strengths Sidebar */
+    .summary-card {
       background: var(--card-bg);
-      border-color: var(--accent-color);
-      transform: translateY(-2px);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 28px;
     }
 
-    /* --- METRICS / STATS CARD --- */
-    .hero-metrics {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: var(--box-shadow);
-    }
-
-    .stat-card {
-      padding: 15px 0;
-      border-bottom: 1px solid var(--border-color);
-    }
-
-    .stat-card:last-child {
-      border-bottom: none;
-    }
-
-    .stat-number {
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--accent-color);
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: var(--secondary-text);
-    }
-
-    /* --- SECTION HEADINGS --- */
-    .section-title {
-      font-size: 2rem;
+    .summary-card h3 {
+      font-size: 1.05rem;
       color: var(--text-heading);
-      margin-bottom: 10px;
-      text-align: center;
+      margin-bottom: 18px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .summary-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .summary-item {
+      display: flex;
+      gap: 12px;
+      font-size: 0.92rem;
+    }
+
+    .summary-item i {
+      color: var(--accent-light);
+      margin-top: 4px;
+    }
+
+    .summary-item strong {
+      color: var(--text-heading);
+      display: block;
+    }
+
+    /* --- SECTION COMMON --- */
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      color: var(--text-heading);
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
     }
 
     .section-subtitle {
-      text-align: center;
-      color: var(--secondary-text);
-      margin-bottom: 40px;
+      color: var(--text-muted);
+      font-size: 1rem;
     }
 
-    /* --- SKILLS SECTION --- */
-    .skills-grid {
+    /* --- SKILLS & COMPETENCIES --- */
+    .competency-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
     }
 
-    .skill-card {
+    .competency-card {
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      padding: 25px;
-      border-radius: 8px;
-      transition: var(--transition);
+      border: 1px solid var(--card-border);
+      padding: 28px;
+      border-radius: 10px;
     }
 
-    .skill-card:hover {
-      border-color: var(--accent-color);
-      transform: translateY(-3px);
-    }
-
-    .skill-card h3 {
+    .competency-card h3 {
       color: var(--text-heading);
-      margin-bottom: 15px;
+      font-size: 1.1rem;
+      margin-bottom: 16px;
       display: flex;
       align-items: center;
       gap: 10px;
+    }
+
+    .competency-card p {
+      font-size: 0.92rem;
+      color: var(--text-body);
+      margin-bottom: 16px;
     }
 
     .skill-tags {
@@ -282,249 +313,186 @@
     }
 
     .tag {
-      background: rgba(0, 198, 255, 0.1);
-      color: var(--accent-color);
-      padding: 6px 12px;
-      border-radius: 20px;
-      font-size: 0.85rem;
+      background: var(--accent-bg);
+      color: var(--accent-light);
+      padding: 5px 12px;
+      border-radius: 4px;
+      font-size: 0.82rem;
       font-weight: 500;
-      border: 1px solid rgba(0, 198, 255, 0.2);
+      border: 1px solid rgba(99, 102, 241, 0.15);
     }
 
-    /* --- DASHBOARD / CHART SECTION --- */
-    .dashboard-container {
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 12px;
-      padding: 25px;
-      box-shadow: var(--box-shadow);
-      margin-top: 30px;
-    }
-
-    .chart-box {
-      position: relative;
-      height: 300px;
-      width: 100%;
-    }
-
-    /* --- EXPERIENCE & EDUCATION (TIMELINE) --- */
+    /* --- EXPERIENCE & EDUCATION --- */
     .timeline {
-      position: relative;
-      max-width: 800px;
-      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
     }
 
-    .timeline::after {
-      content: '';
-      position: absolute;
-      width: 2px;
-      background: var(--border-color);
-      top: 0;
-      bottom: 0;
-      left: 20px;
-    }
-
-    .timeline-item {
-      padding: 10px 40px 30px 50px;
-      position: relative;
-    }
-
-    .timeline-item::after {
-      content: '';
-      position: absolute;
-      width: 12px;
-      height: 12px;
-      left: 15px;
-      top: 15px;
-      background: var(--accent-color);
-      border-radius: 50%;
-      z-index: 1;
-    }
-
-    .timeline-content {
+    .timeline-card {
       background: var(--card-bg);
-      padding: 20px;
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 32px;
     }
 
-    .timeline-title {
-      font-size: 1.1rem;
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .timeline-title h3 {
+      font-size: 1.2rem;
       color: var(--text-heading);
     }
 
-    .timeline-subtitle {
-      color: var(--accent-color);
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-
-    .timeline-date {
-      font-size: 0.85rem;
-      color: var(--secondary-text);
-      margin-bottom: 10px;
-    }
-
-    .timeline-highlights {
-      margin-top: 10px;
-      padding-left: 18px;
-      color: var(--secondary-text);
+    .timeline-company {
+      color: var(--accent-light);
+      font-weight: 600;
       font-size: 0.95rem;
     }
 
-    .timeline-highlights li {
-      margin-bottom: 6px;
+    .timeline-date {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      background: var(--bg-color);
+      padding: 4px 12px;
+      border-radius: 4px;
+      border: 1px solid var(--card-border);
+    }
+
+    .timeline-bullets {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 12px;
+    }
+
+    .timeline-bullets li {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: var(--text-body);
     }
 
     /* --- PROJECTS SECTION --- */
-    .project-filter {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 30px;
-    }
-
-    .filter-btn {
-      padding: 8px 16px;
-      border: 1px solid var(--border-color);
-      background: var(--card-bg);
-      color: var(--text-color);
-      border-radius: 20px;
-      cursor: pointer;
-      transition: var(--transition);
-    }
-
-    .filter-btn.active, .filter-btn:hover {
-      background: var(--accent-gradient);
-      color: #fff;
-      border-color: transparent;
-    }
-
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 32px;
     }
 
     .project-card {
       background: var(--card-bg);
-      border: 1px solid var(--border-color);
+      border: 1px solid var(--card-border);
       border-radius: 10px;
-      overflow: hidden;
+      padding: 32px;
       display: flex;
       flex-direction: column;
-      transition: var(--transition);
+      justify-content: space-between;
     }
 
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--box-shadow);
-      border-color: var(--accent-color);
-    }
-
-    .project-body {
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-    }
-
-    .project-title {
-      font-size: 1.25rem;
+    .project-header h3 {
+      font-size: 1.3rem;
       color: var(--text-heading);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .project-desc {
-      color: var(--secondary-text);
-      font-size: 0.95rem;
-      margin-bottom: 15px;
-      flex-grow: 1;
+    .project-subtitle {
+      color: var(--accent-light);
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 16px;
     }
 
-    .project-metrics {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 10px 14px;
-      margin-bottom: 15px;
+    .project-section-title {
       font-size: 0.85rem;
       color: var(--text-heading);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 16px 0 6px 0;
+      font-weight: 700;
     }
 
-    .project-metrics span {
-      color: var(--accent-color);
-      font-weight: 600;
+    .project-text {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      margin-bottom: 8px;
     }
 
-    .project-tech {
+    .project-footer {
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--card-border);
       display: flex;
-      gap: 8px;
-      margin-bottom: 20px;
+      justify-content: space-between;
+      align-items: center;
       flex-wrap: wrap;
+      gap: 16px;
     }
 
-    /* --- CONTACT & FOOTER --- */
-    .contact-container {
+    /* --- ANALYTICS DASHBOARD --- */
+    .dashboard-container {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 32px;
+      margin-top: 40px;
+    }
+
+    .chart-box {
+      position: relative;
+      height: 320px;
+      width: 100%;
+    }
+
+    /* --- CONTACT --- */
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 48px;
       text-align: center;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto;
     }
 
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      margin: 20px 0 30px;
-      font-size: 0.95rem;
-      color: var(--secondary-text);
-      flex-wrap: wrap;
+    .contact-card h2 {
+      color: var(--text-heading);
+      font-size: 1.8rem;
+      margin-bottom: 12px;
     }
 
-    .contact-info span {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+    .contact-card p {
+      color: var(--text-body);
+      margin-bottom: 32px;
+      font-size: 1rem;
     }
 
     .contact-links {
       display: flex;
       justify-content: center;
-      gap: 20px;
-    }
-
-    .social-btn {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: var(--card-bg);
-      border: 1px solid var(--border-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-heading);
-      font-size: 1.2rem;
-      text-decoration: none;
-      transition: var(--transition);
-    }
-
-    .social-btn:hover {
-      background: var(--accent-gradient);
-      color: #fff;
-      transform: translateY(-3px);
+      gap: 16px;
+      flex-wrap: wrap;
     }
 
     footer {
       text-align: center;
-      padding: 30px 0;
-      color: var(--secondary-text);
-      font-size: 0.9rem;
-      border-top: 1px solid var(--border-color);
+      padding: 40px 0;
+      color: var(--text-muted);
+      font-size: 0.88rem;
     }
 
-    /* --- RESPONSIVE DESIGN --- */
     @media (max-width: 768px) {
-      .hero-content {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .projects-grid {
         grid-template-columns: 1fr;
       }
 
@@ -543,250 +511,249 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="container nav-container">
-      <a href="#" class="logo">Ancy<span>.analytics</span></a>
+      <a href="#" class="logo">ancy<span>.analytics</span></a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
+        <li><a href="#about">Overview</a></li>
         <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
+        <li><a href="#projects">Engineering & Analytics</a></li>
+        <li><a href="#skills">Capabilities</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle Theme">
-        <i class="fa-solid fa-moon"></i>
+        <i class="fa-solid fa-moon"></i> Theme
       </button>
     </div>
   </nav>
 
   <!-- HERO SECTION -->
   <section class="hero" id="about">
-    <div class="container hero-content">
+    <div class="container hero-grid">
       <div class="hero-text">
+        <div class="hero-badge">
+          <i class="fa-solid fa-circle-dot"></i> Data Analyst & Analytics Engineer
+        </div>
         <h1>Ancy Mathews</h1>
-        <h2>Data Analyst & IT Graduate</h2>
+        <h2>B.Tech Information Technology Graduate | Business & Predictive Analytics</h2>
         <p>
-          B.Tech Information Technology graduate[cite: 1] with expertise in SQL, Python, Time Series Analysis, and Predictive Modeling[cite: 1]. Specialized in building automated ETL pipelines, data cleaning workflows, and converting raw datasets into interactive visualization dashboards.
+          Specializing in turning unstructured data into operational intelligence. Experienced in designing end-to-end data pipelines, predictive modeling, statistical preprocessing, and relational database architecture.
         </p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-chart-line"></i> Explore Analytics Projects</a>
-          <a href="mailto:ancymathews2003@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>[cite: 1]
-        </div>
-      </div>
-      
-      <!-- HERO METRICS CARD -->
-      <div class="hero-metrics">
-        <div class="stat-card">
-          <div class="stat-number" data-target="94">0%</div>
-          <div class="stat-label">Bi-GRU AI Form Accuracy (Smart Gym)[cite: 1]</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="8.64">0</div>
-          <div class="stat-label">B.Tech Academic CGPA (GEC Barton Hill)[cite: 1]</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="168">0 Hrs</div>
-          <div class="stat-label">Hourly Weather Prediction (7-Day Horizon)[cite: 1]</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number" data-target="98.33">0%</div>
-          <div class="stat-label">Higher Secondary Percentage (12th Board)[cite: 1]</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SKILLS SECTION & INTERACTIVE DATA VISUALIZATION -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Technical Expertise</h2>
-      <p class="section-subtitle">Data analysis stack, database management, and programming tools</p>
-      
-      <div class="skills-grid">
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-code" style="color: var(--accent-color);"></i> Programming & Querying</h3>
-          <div class="skill-tags">
-            <span class="tag">Python (Pandas, NumPy)</span>[cite: 1]
-            <span class="tag">SQL / MySQL</span>[cite: 1]
-            <span class="tag">JavaScript</span>[cite: 1]
-            <span class="tag">C</span>[cite: 1]
-            <span class="tag">Java</span>[cite: 1]
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-brain" style="color: var(--accent-color);"></i> Data Science & Machine Learning</h3>
-          <div class="skill-tags">
-            <span class="tag">Data Preprocessing & Cleaning</span>[cite: 1]
-            <span class="tag">Time Series Analysis</span>[cite: 1]
-            <span class="tag">Bi-GRU & Stacked LSTM</span>[cite: 1]
-            <span class="tag">DBMS Architectures</span>[cite: 1]
-            <span class="tag">Data Structures & Algorithms</span>[cite: 1]
-          </div>
-        </div>
-
-        <div class="skill-card">
-          <h3><i class="fa-solid fa-laptop-code" style="color: var(--accent-color);"></i> Tools & Methodologies</h3>
-          <div class="skill-tags">
-            <span class="tag">Git & GitHub</span>[cite: 1]
-            <span class="tag">Statistical Modeling</span>
-            <span class="tag">Web Development (HTML/CSS/JS)</span>[cite: 1]
-            <span class="tag">Object-Oriented Programming</span>[cite: 1]
-          </div>
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-diagram-project"></i> Technical Case Studies</a>
+          <a href="mailto:ancymathews2003@gmail.com" class="btn btn-outline"><i class="fa-solid fa-paper-plane"></i> Get in Touch</a>
         </div>
       </div>
 
-      <!-- Skill Distribution Chart -->
-      <div class="dashboard-container">
-        <h3 style="color: var(--text-heading); margin-bottom: 15px; text-align: center;">Technical Proficiency Radar</h3>
-        <div class="chart-box">
-          <canvas id="skillsChart"></canvas>
-        </div>
+      <!-- STRATEGIC SUMMARY -->
+      <div class="summary-card">
+        <h3>Core Focus</h3>
+        <ul class="summary-list">
+          <li class="summary-item">
+            <i class="fa-solid fa-database"></i>
+            <div>
+              <strong>Data Engineering & SQL</strong>
+              Relational schemas, query optimization, and structured pipelines.
+            </div>
+          </li>
+          <li class="summary-item">
+            <i class="fa-solid fa-chart-line"></i>
+            <div>
+              <strong>Predictive Modeling</strong>
+              Time-series forecasting, sequential neural networks, and anomaly detection.
+            </div>
+          </li>
+          <li class="summary-item">
+            <i class="fa-solid fa-code-merge"></i>
+            <div>
+              <strong>System Architecture</strong>
+              Translating business problems into scalable analytical code solutions.
+            </div>
+          </li>
+        </ul>
       </div>
     </div>
   </section>
 
-  <!-- EXPERIENCE & EDUCATION SECTION -->
+  <!-- EXPERIENCE & ACADEMICS -->
   <section id="experience">
     <div class="container">
-      <h2 class="section-title">Experience & Academic Background</h2>
-      <p class="section-subtitle">Professional growth and educational achievements</p>
-      
+      <div class="section-header">
+        <h2 class="section-title">Professional Experience & Education</h2>
+        <p class="section-subtitle">Track record in analytical methodologies and engineering coursework</p>
+      </div>
+
       <div class="timeline">
-        <!-- Experience -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3 class="timeline-title">Data Analyst Intern</h3>
-            <div class="timeline-subtitle">Techolas Kochi</div>[cite: 1]
-            <div class="timeline-date">May 2026 – Present</div>[cite: 1]
-            <ul class="timeline-highlights">
-              <li>Performing raw dataset cleaning, missing value handling, and exploratory data analysis (EDA)[cite: 1].</li>
-              <li>Executing SQL query optimizations and relational database management for efficient data retrieval[cite: 1].</li>
-              <li>Building baseline analytical reports and statistical visualizations for performance tracking[cite: 1].</li>
-            </ul>
+        <!-- Professional Experience -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>Data Analyst Intern</h3>
+              <div class="timeline-company">Techolas Kochi</div>
+            </div>
+            <span class="timeline-date">May 2026 – Present</span>
           </div>
+          <ul class="timeline-bullets">
+            <li><strong>Data Pipeline & Preprocessing:</strong> Perform automated cleaning, missing value imputations, and structural standardization across complex operational datasets.</li>
+            <li><strong>SQL Optimization:</strong> Write complex SQL queries and JOIN structures to query multi-relational database schemas for key performance indicators.</li>
+            <li><strong>Exploratory Data Analysis:</strong> Conduct statistical profiling to uncover underlying data patterns, operational bottlenecks, and data quality anomalies.</li>
+          </ul>
         </div>
 
-        <!-- Certifications -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3 class="timeline-title">NPTEL Certification: Problem Solving Through Programming in C</h3>
-            <div class="timeline-subtitle">IIT Kharagpur</div>[cite: 1]
-            <div class="timeline-date">Certified</div>
-            <p style="color: var(--secondary-text); font-size: 0.95rem;">
-              Demonstrated strong algorithmic foundations, logic building, memory management, and structured programming skills[cite: 1].
-            </p>
+        <!-- Education -->
+        <div class="timeline-card">
+          <div class="timeline-header">
+            <div class="timeline-title">
+              <h3>B.Tech in Information Technology</h3>
+              <div class="timeline-company">Government Engineering College Barton Hill (APJ Abdul Kalam Technological University)</div>
+            </div>
+            <span class="timeline-date">Graduated May 2026</span>
           </div>
-        </div>
-
-        <!-- Education B.Tech -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3 class="timeline-title">B.Tech in Information Technology</h3>
-            <div class="timeline-subtitle">Government Engineering College Barton Hill, Thiruvananthapuram</div>[cite: 1]
-            <div class="timeline-date">Graduated: May 2026 | APJ Abdul Kalam Technological University</div>[cite: 1]
-            <ul class="timeline-highlights">
-              <li><strong>Academic Performance:</strong> CGPA 8.64 / 10.00[cite: 1].</li>
-              <li><strong>Core Coursework:</strong> DBMS, Data Structures, Algorithms, Object-Oriented Programming (OOPS), Web Development, Data Analysis[cite: 1].</li>
-            </ul>
-          </div>
-        </div>
-
-        <!-- Secondary Education -->
-        <div class="timeline-item">
-          <div class="timeline-content">
-            <h3 class="timeline-title">Higher Secondary & Secondary Education</h3>
-            <div class="timeline-subtitle">Kerala Board & CBSE</div>[cite: 1]
-            <ul class="timeline-highlights">
-              <li><strong>Higher Secondary (12th):</strong> Govt Model Higher Secondary School — 98.33% (May 2022)[cite: 1].</li>
-              <li><strong>Secondary School (10th):</strong> Mar Thoma Central School — 88.00% (March 2020)[cite: 1].</li>
-            </ul>
-          </div>
+          <ul class="timeline-bullets">
+            <li><strong>Academic Performance:</strong> CGPA: 8.64 / 10.00 (Demonstrated consistent technical rigor across 4 years).</li>
+            <li><strong>Core Curriculum:</strong> Database Management Systems (DBMS), Data Structures & Algorithms, Object-Oriented Programming (OOP), Web Development, and Advanced Analytics.</li>
+            <li><strong>Secondary Record:</strong> Higher Secondary (12th) Board: 98.33% | Secondary School (10th): 88.00%.</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS SECTION -->
+  <!-- PROJECTS / TECHNICAL CASE STUDIES -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Analytics & ML Projects</h2>
-      <p class="section-subtitle">Real-world statistical models and computer vision pipelines</p>
-
-      <!-- Project Filters -->
-      <div class="project-filter">
-        <button class="filter-btn active" data-filter="all">All Projects</button>
-        <button class="filter-btn" data-filter="aiml">AI / Computer Vision</button>
-        <button class="filter-btn" data-filter="timeseries">Time Series Analysis</button>
+      <div class="section-header">
+        <h2 class="section-title">Technical Case Studies</h2>
+        <p class="section-subtitle">Engineering solutions addressing real-world predictive and analytical challenges</p>
       </div>
 
       <div class="projects-grid">
         <!-- Project 1 -->
-        <div class="project-card" data-category="aiml">
-          <div class="project-body">
-            <h3 class="project-title">Smart Gym Coach (AI Motion Analyzer)</h3>[cite: 1]
-            <p class="project-desc">
-              Designed a real-time computer vision system that evaluates exercise posture and corrects form errors live[cite: 1]. Handled end-to-end data acquisition, frame preprocessing, feature extraction, and model deployment[cite: 1].
-            </p>
-            <div class="project-metrics">
-              <i class="fa-solid fa-bolt"></i> <strong>Key Impact:</strong> Achieved <span>94% Accuracy</span> using lightweight Bi-GRU classification models[cite: 1].
+        <div class="project-card">
+          <div>
+            <div class="project-subtitle">Computer Vision & Sequential Modeling</div>
+            <div class="project-header">
+              <h3>Smart Gym Coach (AI Motion Analyzer)</h3>
             </div>
-            <div class="project-tech">
-              <span class="tag">Python</span>[cite: 1]
-              <span class="tag">Bi-GRU Neural Networks</span>[cite: 1]
-              <span class="tag">Data Preprocessing</span>[cite: 1]
-              <span class="tag">Computer Vision</span>
+            
+            <div class="project-section-title">Problem Statement</div>
+            <p class="project-text">Human biomechanical form validation during physical exercises requires continuous temporal tracking rather than isolated static frame analysis.</p>
+
+            <div class="project-section-title">Technical Architecture & Execution</div>
+            <p class="project-text">Implemented temporal feature extraction using dynamic motion sequencing. Utilized a lightweight Bidirectional Gated Recurrent Unit (Bi-GRU) architecture to process bi-directional sequential posture patterns with low latency inference.</p>
+
+            <div class="project-section-title">Impact & Performance Metrics</div>
+            <p class="project-text">Achieved 94% classification accuracy while minimizing model weight, allowing real-time edge processing and form correction feedback.</p>
+          </div>
+
+          <div class="project-footer">
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Bi-GRU</span>
+              <span class="tag">Data Preprocessing</span>
+              <span class="tag">Classification</span>
             </div>
-            <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
-              <i class="fa-brands fa-github"></i> View GitHub Repository
-            </a>[cite: 1]
+            <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
           </div>
         </div>
 
         <!-- Project 2 -->
-        <div class="project-card" data-category="timeseries aiml">
-          <div class="project-body">
-            <h3 class="project-title">Weather Forecasting Stacked LSTM Pipeline</h3>[cite: 1]
-            <p class="project-desc">
-              Engineered a multi-variable time-series sequence-to-sequence model to forecast hourly environmental parameters across a 7-day future window using historical climate datasets[cite: 1].
-            </p>
-            <div class="project-metrics">
-              <i class="fa-solid fa-chart-line"></i> <strong>Key Impact:</strong> Effective <span>168-Hour Forecast Horizon</span> with sliding window feature scaling[cite: 1].
+        <div class="project-card">
+          <div>
+            <div class="project-subtitle">Time-Series & Multivariate Forecasting</div>
+            <div class="project-header">
+              <h3>Weather Forecasting via Stacked LSTM</h3>
             </div>
-            <div class="project-tech">
-              <span class="tag">Python</span>[cite: 1]
-              <span class="tag">Stacked LSTM</span>[cite: 1]
-              <span class="tag">Time Series Forecasting</span>[cite: 1]
-              <span class="tag">Data Wrangling</span>
+
+            <div class="project-section-title">Problem Statement</div>
+            <p class="project-text">Environmental trends display non-linear, multi-variable dependencies that traditional linear regression techniques fail to model accurately over extended horizons.</p>
+
+            <div class="project-section-title">Technical Architecture & Execution</div>
+            <p class="project-text">Engineered a multi-layer Stacked Long Short-Term Memory (LSTM) sequence-to-sequence model. Built a robust temporal feature-engineering pipeline involving sliding window normalization and historical dataset preprocessing.</p>
+
+            <div class="project-section-title">Impact & Performance Metrics</div>
+            <p class="project-text">Delivered reliable hourly multivariate parameter forecasts extending up to a 7-day prediction window.</p>
+          </div>
+
+          <div class="project-footer">
+            <div class="skill-tags">
+              <span class="tag">Python</span>
+              <span class="tag">Stacked LSTM</span>
+              <span class="tag">Time Series Analysis</span>
+              <span class="tag">Feature Scaling</span>
             </div>
-            <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
-              <i class="fa-brands fa-github"></i> View GitHub Repository
-            </a>[cite: 1]
+            <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> Source Code</a>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section id="contact">
-    <div class="container contact-container">
-      <h2 class="section-title">Connect & Collaborate</h2>
-      <p class="section-subtitle">Open for full-time Data Analyst and Analytics Engineering roles</p>
-      
-      <div class="contact-info">
-        <span><i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Thiruvananthapuram, Kerala, India</span>[cite: 1]
-        <span><i class="fa-solid fa-phone" style="color: var(--accent-color);"></i> +91 9072294122</span>[cite: 1]
+  <!-- TECHNICAL CAPABILITIES & CHART -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Technical Capabilities</h2>
+        <p class="section-subtitle">Core stack and foundational engineering skills</p>
       </div>
 
-      <div class="contact-links">
-        <a href="mailto:ancymathews2003@gmail.com" class="social-btn" title="Email Me">
-          <i class="fa-solid fa-envelope"></i>
-        </a>[cite: 1]
-        <a href="https://linkedin.com/in/ancy-bhavi" target="_blank" class="social-btn" title="LinkedIn Profile">
-          <i class="fa-brands fa-linkedin-in"></i>
-        </a>[cite: 1]
-        <a href="https://github.com/AncyAnnMathews" target="_blank" class="social-btn" title="GitHub Repositories">
-          <i class="fa-brands fa-github"></i>
-        </a>[cite: 1]
+      <div class="competency-grid">
+        <div class="competency-card">
+          <h3><i class="fa-solid fa-code" style="color: var(--accent-light);"></i> Languages & Databases</h3>
+          <p>Proficient in querying structured data, building backend logic, and writing optimized scripts.</p>
+          <div class="skill-tags">
+            <span class="tag">SQL / MySQL</span>
+            <span class="tag">Python</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">C</span>
+            <span class="tag">Java</span>
+          </div>
+        </div>
+
+        <div class="competency-card">
+          <h3><i class="fa-solid fa-chart-diagram" style="color: var(--accent-light);"></i> Data Engineering & Analysis</h3>
+          <p>Methodologies for transforming raw data into reliable datasets and actionable insights.</p>
+          <div class="skill-tags">
+            <span class="tag">Exploratory Data Analysis</span>
+            <span class="tag">Data Preprocessing</span>
+            <span class="tag">Time Series Forecasting</span>
+            <span class="tag">DBMS Architecture</span>
+          </div>
+        </div>
+
+        <div class="competency-card">
+          <h3><i class="fa-solid fa-gears" style="color: var(--accent-light);"></i> Engineering Fundamentals</h3>
+          <p>Core computer science topics necessary for building efficient, scalable software solutions.</p>
+          <div class="skill-tags">
+            <span class="tag">Data Structures</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">OOP Principles</span>
+            <span class="tag">Web Development</span>
+            <span class="tag">Git Version Control</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Capability Distribution Visualization -->
+      <div class="dashboard-container">
+        <h3 style="color: var(--text-heading); font-size: 1.1rem; margin-bottom: 20px; text-align: center;">Technical Competency Breakdown</h3>
+        <div class="chart-box">
+          <canvas id="competencyChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <h2>Initiate Contact</h2>
+        <p>I am actively seeking roles in Data Analysis, Analytics Engineering, or Business Intelligence. Let’s discuss how I can add value to your team.</p>
+        
+        <div class="contact-links">
+          <a href="mailto:ancymathews2003@gmail.com" class="btn btn-primary"><i class="fa-solid fa-envelope"></i> Email Me</a>
+          <a href="https://linkedin.com/in/ancy-bhavi" target="_blank" class="btn btn-outline"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+          <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline"><i class="fa-brands fa-github"></i> GitHub</a>
+        </div>
       </div>
     </div>
   </section>
@@ -794,118 +761,38 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Ancy Mathews. Built for performance, analytical clarity, and responsive design.</p>
+      <p>&copy; 2026 Ancy Mathews. Built for technical clarity, performance, and responsive deployment.</p>
     </div>
   </footer>
 
-  <!-- JAVASCRIPT LOGIC -->
+  <!-- SCRIPT -->
   <script>
-    // --- DARK / LIGHT THEME TOGGLE ---
+    // --- THEME SWITCHER ---
     const themeToggleBtn = document.getElementById('themeToggle');
-    const themeIcon = themeToggleBtn.querySelector('i');
-
     themeToggleBtn.addEventListener('click', () => {
-      const currentTheme = document.body.getAttribute('data-theme');
-      if (currentTheme === 'light') {
+      const isLight = document.body.getAttribute('data-theme') === 'light';
+      if (isLight) {
         document.body.removeAttribute('data-theme');
-        themeIcon.className = 'fa-solid fa-moon';
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-moon"></i> Theme';
       } else {
         document.body.setAttribute('data-theme', 'light');
-        themeIcon.className = 'fa-solid fa-sun';
+        themeToggleBtn.innerHTML = '<i class="fa-solid fa-sun"></i> Theme';
       }
-    });
-
-    // --- NUMERICAL COUNTER ANIMATION ---
-    const statNumbers = document.querySelectorAll('.stat-number');
-    let animated = false;
-
-    function animateCounters() {
-      statNumbers.forEach(stat => {
-        const target = +stat.getAttribute('data-target');
-        const isDecimal = target % 1 !== 0;
-        let count = 0;
-        const speed = target / 50;
-
-        const updateCount = () => {
-          count += speed;
-          if (count < target) {
-            stat.innerText = isDecimal ? count.toFixed(2) : Math.ceil(count);
-            setTimeout(updateCount, 30);
-          } else {
-            const labelText = stat.nextElementSibling.innerText;
-            if (labelText.includes('Accuracy') || labelText.includes('Percentage')) {
-              stat.innerText = target + '%';
-            } else if (labelText.includes('Hourly')) {
-              stat.innerText = target + ' Hrs';
-            } else {
-              stat.innerText = target;
-            }
-          }
-        };
-        updateCount();
-      });
-    }
-
-    // Trigger counter on scroll
-    window.addEventListener('scroll', () => {
-      const heroSection = document.querySelector('.hero');
-      const position = heroSection.getBoundingClientRect();
-      if(position.top < window.innerHeight && !animated) {
-        animateCounters();
-        animated = true;
-      }
-    });
-    // Initial run if already in view
-    animateCounters();
-
-    // --- PROJECT CATEGORY FILTERING ---
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-
-    filterBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        filterBtns.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const filterValue = btn.getAttribute('data-filter');
-
-        projectCards.forEach(card => {
-          if (filterValue === 'all' || card.getAttribute('data-category').includes(filterValue)) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
-      });
     });
 
     // --- CHART.JS PROFICIENCY GRAPH ---
-    const ctx = document.getElementById('skillsChart').getContext('2d');
-    const skillsChart = new Chart(ctx, {
+    const ctx = document.getElementById('competencyChart').getContext('2d');
+    const competencyChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['SQL / Database Querying', 'Python (Pandas / NumPy)', 'Time Series Forecasting', 'Data Preprocessing & EDA', 'Machine Learning Algorithms', 'Web Development'],
+        labels: ['SQL & Data Querying', 'Python (Analytics)', 'Data Cleaning / EDA', 'Time-Series / ML', 'Data Structures', 'Web Tech'],
         datasets: [{
-          label: 'Proficiency Level (%)',
-          data: [92, 90, 88, 94, 85, 78],
-          backgroundColor: [
-            'rgba(0, 242, 254, 0.7)',
-            'rgba(0, 114, 255, 0.7)',
-            'rgba(0, 242, 254, 0.7)',
-            'rgba(0, 114, 255, 0.7)',
-            'rgba(0, 242, 254, 0.7)',
-            'rgba(0, 114, 255, 0.7)'
-          ],
-          borderColor: [
-            '#00f2fe',
-            '#0072ff',
-            '#00f2fe',
-            '#0072ff',
-            '#00f2fe',
-            '#0072ff'
-          ],
-          borderWidth: 1.5,
-          borderRadius: 6
+          label: 'Skill Emphasis',
+          data: [90, 88, 92, 85, 82, 78],
+          backgroundColor: 'rgba(99, 102, 241, 0.65)',
+          borderColor: '#6366f1',
+          borderWidth: 1,
+          borderRadius: 4
         }]
       },
       options: {
@@ -918,11 +805,11 @@
           y: {
             beginAtZero: true,
             max: 100,
-            ticks: { color: '#8b949e' },
+            ticks: { color: '#6b7280' },
             grid: { color: 'rgba(255, 255, 255, 0.05)' }
           },
           x: {
-            ticks: { color: '#8b949e' },
+            ticks: { color: '#6b7280' },
             grid: { display: false }
           }
         }
