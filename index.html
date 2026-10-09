@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ancy Mathews | Data Analyst Portfolio</title>
+  <title>Ancy Mathews | Data Analyst & Analytics Engineer</title>
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -365,6 +365,17 @@
       margin-bottom: 10px;
     }
 
+    .timeline-highlights {
+      margin-top: 10px;
+      padding-left: 18px;
+      color: var(--secondary-text);
+      font-size: 0.95rem;
+    }
+
+    .timeline-highlights li {
+      margin-bottom: 6px;
+    }
+
     /* --- PROJECTS SECTION --- */
     .project-filter {
       display: flex;
@@ -427,8 +438,23 @@
     .project-desc {
       color: var(--secondary-text);
       font-size: 0.95rem;
-      margin-bottom: 20px;
+      margin-bottom: 15px;
       flex-grow: 1;
+    }
+
+    .project-metrics {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-color);
+      border-radius: 6px;
+      padding: 10px 14px;
+      margin-bottom: 15px;
+      font-size: 0.85rem;
+      color: var(--text-heading);
+    }
+
+    .project-metrics span {
+      color: var(--accent-color);
+      font-weight: 600;
     }
 
     .project-tech {
@@ -445,11 +471,26 @@
       margin: 0 auto;
     }
 
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin: 20px 0 30px;
+      font-size: 0.95rem;
+      color: var(--secondary-text);
+      flex-wrap: wrap;
+    }
+
+    .contact-info span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
     .contact-links {
       display: flex;
       justify-content: center;
       gap: 20px;
-      margin-top: 30px;
     }
 
     .social-btn {
@@ -488,7 +529,7 @@
       }
 
       .nav-links {
-        display: none; /* Simplified for single-file preview */
+        display: none;
       }
 
       .hero-text h1 {
@@ -502,7 +543,7 @@
   <!-- NAVIGATION -->
   <nav>
     <div class="container nav-container">
-      <a href="#" class="logo">Ancy<span>.data</span></a>
+      <a href="#" class="logo">Ancy<span>.analytics</span></a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
@@ -523,11 +564,11 @@
         <h1>Ancy Mathews</h1>
         <h2>Data Analyst & IT Graduate</h2>
         <p>
-          B.Tech Information Technology graduate with a strong analytical foundation in MySQL, Python, and Machine Learning. Passionate about transforming complex datasets into actionable insights and building data-driven predictive models.
+          B.Tech Information Technology graduate[cite: 1] with expertise in SQL, Python, Time Series Analysis, and Predictive Modeling[cite: 1]. Specialized in building automated ETL pipelines, data cleaning workflows, and converting raw datasets into interactive visualization dashboards.
         </p>
         <div class="hero-cta">
-          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-chart-line"></i> View Projects</a>
-          <a href="mailto:ancymathews2003@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>
+          <a href="#projects" class="btn btn-primary"><i class="fa-solid fa-chart-line"></i> Explore Analytics Projects</a>
+          <a href="mailto:ancymathews2003@gmail.com" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> Contact Me</a>[cite: 1]
         </div>
       </div>
       
@@ -535,15 +576,19 @@
       <div class="hero-metrics">
         <div class="stat-card">
           <div class="stat-number" data-target="94">0%</div>
-          <div class="stat-label">Model Accuracy (Smart Gym Coach AI)[cite: 1]</div>
+          <div class="stat-label">Bi-GRU AI Form Accuracy (Smart Gym)[cite: 1]</div>
         </div>
         <div class="stat-card">
           <div class="stat-number" data-target="8.64">0</div>
-          <div class="stat-label">B.Tech CGPA (GEC Barton Hill)[cite: 1]</div>
+          <div class="stat-label">B.Tech Academic CGPA (GEC Barton Hill)[cite: 1]</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number" data-target="7">0 Days</div>
-          <div class="stat-label">Weather Prediction Horizon (LSTM Model)[cite: 1]</div>
+          <div class="stat-number" data-target="168">0 Hrs</div>
+          <div class="stat-label">Hourly Weather Prediction (7-Day Horizon)[cite: 1]</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" data-target="98.33">0%</div>
+          <div class="stat-label">Higher Secondary Percentage (12th Board)[cite: 1]</div>
         </div>
       </div>
     </div>
@@ -553,13 +598,13 @@
   <section id="skills">
     <div class="container">
       <h2 class="section-title">Technical Expertise</h2>
-      <p class="section-subtitle">Core competencies and data stack proficiency</p>
+      <p class="section-subtitle">Data analysis stack, database management, and programming tools</p>
       
       <div class="skills-grid">
         <div class="skill-card">
-          <h3><i class="fa-solid fa-code" style="color: var(--accent-color);"></i> Programming</h3>
+          <h3><i class="fa-solid fa-code" style="color: var(--accent-color);"></i> Programming & Querying</h3>
           <div class="skill-tags">
-            <span class="tag">Python</span>[cite: 1]
+            <span class="tag">Python (Pandas, NumPy)</span>[cite: 1]
             <span class="tag">SQL / MySQL</span>[cite: 1]
             <span class="tag">JavaScript</span>[cite: 1]
             <span class="tag">C</span>[cite: 1]
@@ -568,29 +613,30 @@
         </div>
 
         <div class="skill-card">
-          <h3><i class="fa-solid fa-brain" style="color: var(--accent-color);"></i> Core Analytics & ML</h3>
+          <h3><i class="fa-solid fa-brain" style="color: var(--accent-color);"></i> Data Science & Machine Learning</h3>
           <div class="skill-tags">
-            <span class="tag">Data Analysis</span>[cite: 1]
-            <span class="tag">Bi-GRU / LSTM</span>[cite: 1]
-            <span class="tag">DBMS</span>[cite: 1]
-            <span class="tag">Data Structures</span>[cite: 1]
-            <span class="tag">Algorithms</span>[cite: 1]
+            <span class="tag">Data Preprocessing & Cleaning</span>[cite: 1]
+            <span class="tag">Time Series Analysis</span>[cite: 1]
+            <span class="tag">Bi-GRU & Stacked LSTM</span>[cite: 1]
+            <span class="tag">DBMS Architectures</span>[cite: 1]
+            <span class="tag">Data Structures & Algorithms</span>[cite: 1]
           </div>
         </div>
 
         <div class="skill-card">
-          <h3><i class="fa-solid fa-laptop-code" style="color: var(--accent-color);"></i> Web & Tools</h3>
+          <h3><i class="fa-solid fa-laptop-code" style="color: var(--accent-color);"></i> Tools & Methodologies</h3>
           <div class="skill-tags">
-            <span class="tag">Web Development</span>[cite: 1]
-            <span class="tag">Git / GitHub</span>[cite: 1]
-            <span class="tag">Time Series Preprocessing</span>[cite: 1]
+            <span class="tag">Git & GitHub</span>[cite: 1]
+            <span class="tag">Statistical Modeling</span>
+            <span class="tag">Web Development (HTML/CSS/JS)</span>[cite: 1]
+            <span class="tag">Object-Oriented Programming</span>[cite: 1]
           </div>
         </div>
       </div>
 
       <!-- Skill Distribution Chart -->
       <div class="dashboard-container">
-        <h3 style="color: var(--text-heading); margin-bottom: 15px; text-align: center;">Skill Proficiency Breakdown</h3>
+        <h3 style="color: var(--text-heading); margin-bottom: 15px; text-align: center;">Technical Proficiency Radar</h3>
         <div class="chart-box">
           <canvas id="skillsChart"></canvas>
         </div>
@@ -601,18 +647,32 @@
   <!-- EXPERIENCE & EDUCATION SECTION -->
   <section id="experience">
     <div class="container">
-      <h2 class="section-title">Experience & Education</h2>
-      <p class="section-subtitle">Academic journey and professional internship</p>
+      <h2 class="section-title">Experience & Academic Background</h2>
+      <p class="section-subtitle">Professional growth and educational achievements</p>
       
       <div class="timeline">
         <!-- Experience -->
         <div class="timeline-item">
           <div class="timeline-content">
             <h3 class="timeline-title">Data Analyst Intern</h3>
-            <div class="timeline-subtitle">Techolas Kochi[cite: 1]</div>
-            <div class="timeline-date">May 2026 – Present[cite: 1]</div>
+            <div class="timeline-subtitle">Techolas Kochi</div>[cite: 1]
+            <div class="timeline-date">May 2026 – Present</div>[cite: 1]
+            <ul class="timeline-highlights">
+              <li>Performing raw dataset cleaning, missing value handling, and exploratory data analysis (EDA)[cite: 1].</li>
+              <li>Executing SQL query optimizations and relational database management for efficient data retrieval[cite: 1].</li>
+              <li>Building baseline analytical reports and statistical visualizations for performance tracking[cite: 1].</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Certifications -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <h3 class="timeline-title">NPTEL Certification: Problem Solving Through Programming in C</h3>
+            <div class="timeline-subtitle">IIT Kharagpur</div>[cite: 1]
+            <div class="timeline-date">Certified</div>
             <p style="color: var(--secondary-text); font-size: 0.95rem;">
-              Engaging in hands-on data handling, querying, analysis, and data preparation techniques in real-world scenarios[cite: 1].
+              Demonstrated strong algorithmic foundations, logic building, memory management, and structured programming skills[cite: 1].
             </p>
           </div>
         </div>
@@ -621,20 +681,24 @@
         <div class="timeline-item">
           <div class="timeline-content">
             <h3 class="timeline-title">B.Tech in Information Technology</h3>
-            <div class="timeline-subtitle">Government Engineering College Barton Hill[cite: 1]</div>
-            <div class="timeline-date">Graduated: May 2026 | CGPA: 8.64 / 10.00[cite: 1]</div>
-            <p style="color: var(--secondary-text); font-size: 0.95rem;">
-              Affiliated with APJ Abdul Kalam Technological University[cite: 1]. Focused on core computer science fundamentals, database management, and AI/ML applications[cite: 1].
-            </p>
+            <div class="timeline-subtitle">Government Engineering College Barton Hill, Thiruvananthapuram</div>[cite: 1]
+            <div class="timeline-date">Graduated: May 2026 | APJ Abdul Kalam Technological University</div>[cite: 1]
+            <ul class="timeline-highlights">
+              <li><strong>Academic Performance:</strong> CGPA 8.64 / 10.00[cite: 1].</li>
+              <li><strong>Core Coursework:</strong> DBMS, Data Structures, Algorithms, Object-Oriented Programming (OOPS), Web Development, Data Analysis[cite: 1].</li>
+            </ul>
           </div>
         </div>
 
         <!-- Secondary Education -->
         <div class="timeline-item">
           <div class="timeline-content">
-            <h3 class="timeline-title">Higher Secondary Education (12th)</h3>
-            <div class="timeline-subtitle">Govt Model Higher Secondary School[cite: 1]</div>
-            <div class="timeline-date">Completed: May 2022 | Score: 98.33%[cite: 1]</div>
+            <h3 class="timeline-title">Higher Secondary & Secondary Education</h3>
+            <div class="timeline-subtitle">Kerala Board & CBSE</div>[cite: 1]
+            <ul class="timeline-highlights">
+              <li><strong>Higher Secondary (12th):</strong> Govt Model Higher Secondary School — 98.33% (May 2022)[cite: 1].</li>
+              <li><strong>Secondary School (10th):</strong> Mar Thoma Central School — 88.00% (March 2020)[cite: 1].</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -644,50 +708,58 @@
   <!-- PROJECTS SECTION -->
   <section id="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">Machine Learning & Predictive Analysis Work</p>
+      <h2 class="section-title">Analytics & ML Projects</h2>
+      <p class="section-subtitle">Real-world statistical models and computer vision pipelines</p>
 
       <!-- Project Filters -->
       <div class="project-filter">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="aiml">AI / ML</button>
-        <button class="filter-btn" data-filter="timeseries">Time Series</button>
+        <button class="filter-btn active" data-filter="all">All Projects</button>
+        <button class="filter-btn" data-filter="aiml">AI / Computer Vision</button>
+        <button class="filter-btn" data-filter="timeseries">Time Series Analysis</button>
       </div>
 
       <div class="projects-grid">
         <!-- Project 1 -->
         <div class="project-card" data-category="aiml">
           <div class="project-body">
-            <h3 class="project-title">Smart Gym Coach</h3>
+            <h3 class="project-title">Smart Gym Coach (AI Motion Analyzer)</h3>[cite: 1]
             <p class="project-desc">
-              Real-time AI fitness system that detects and corrects exercise form errors[cite: 1]. Built using Bi-GRU classification models and lightweight architecture achieving 94% accuracy[cite: 1].
+              Designed a real-time computer vision system that evaluates exercise posture and corrects form errors live[cite: 1]. Handled end-to-end data acquisition, frame preprocessing, feature extraction, and model deployment[cite: 1].
             </p>
+            <div class="project-metrics">
+              <i class="fa-solid fa-bolt"></i> <strong>Key Impact:</strong> Achieved <span>94% Accuracy</span> using lightweight Bi-GRU classification models[cite: 1].
+            </div>
             <div class="project-tech">
               <span class="tag">Python</span>[cite: 1]
-              <span class="tag">Bi-GRU</span>[cite: 1]
-              <span class="tag">AI/ML</span>[cite: 1]
+              <span class="tag">Bi-GRU Neural Networks</span>[cite: 1]
+              <span class="tag">Data Preprocessing</span>[cite: 1]
+              <span class="tag">Computer Vision</span>
             </div>
             <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
-              <i class="fa-brands fa-github"></i> View Code
-            </a>
+              <i class="fa-brands fa-github"></i> View GitHub Repository
+            </a>[cite: 1]
           </div>
         </div>
 
         <!-- Project 2 -->
         <div class="project-card" data-category="timeseries aiml">
           <div class="project-body">
-            <h3 class="project-title">Weather Forecasting using Stacked LSTM</h3>
+            <h3 class="project-title">Weather Forecasting Stacked LSTM Pipeline</h3>[cite: 1]
             <p class="project-desc">
-              Sequence-to-sequence time-series model predicting hourly weather parameters over a 7-day forecast horizon using historical weather datasets[cite: 1].
+              Engineered a multi-variable time-series sequence-to-sequence model to forecast hourly environmental parameters across a 7-day future window using historical climate datasets[cite: 1].
             </p>
+            <div class="project-metrics">
+              <i class="fa-solid fa-chart-line"></i> <strong>Key Impact:</strong> Effective <span>168-Hour Forecast Horizon</span> with sliding window feature scaling[cite: 1].
+            </div>
             <div class="project-tech">
               <span class="tag">Python</span>[cite: 1]
               <span class="tag">Stacked LSTM</span>[cite: 1]
-              <span class="tag">Time Series</span>[cite: 1]
+              <span class="tag">Time Series Forecasting</span>[cite: 1]
+              <span class="tag">Data Wrangling</span>
             </div>
             <a href="https://github.com/AncyAnnMathews" target="_blank" class="btn btn-outline" style="width: 100%; text-align: center; justify-content: center;">
-              <i class="fa-brands fa-github"></i> View Code
-            </a>
+              <i class="fa-brands fa-github"></i> View GitHub Repository
+            </a>[cite: 1]
           </div>
         </div>
       </div>
@@ -697,21 +769,24 @@
   <!-- CONTACT SECTION -->
   <section id="contact">
     <div class="container contact-container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-subtitle">Open for Data Analyst and IT opportunities</p>
+      <h2 class="section-title">Connect & Collaborate</h2>
+      <p class="section-subtitle">Open for full-time Data Analyst and Analytics Engineering roles</p>
       
-      <p>Feel free to reach out via email or connect with me on professional networks.</p>
+      <div class="contact-info">
+        <span><i class="fa-solid fa-location-dot" style="color: var(--accent-color);"></i> Thiruvananthapuram, Kerala, India</span>[cite: 1]
+        <span><i class="fa-solid fa-phone" style="color: var(--accent-color);"></i> +91 9072294122</span>[cite: 1]
+      </div>
 
       <div class="contact-links">
         <a href="mailto:ancymathews2003@gmail.com" class="social-btn" title="Email Me">
           <i class="fa-solid fa-envelope"></i>
-        </a>
-        <a href="https://linkedin.com/in/ancy-bhavi" target="_blank" class="social-btn" title="LinkedIn">
+        </a>[cite: 1]
+        <a href="https://linkedin.com/in/ancy-bhavi" target="_blank" class="social-btn" title="LinkedIn Profile">
           <i class="fa-brands fa-linkedin-in"></i>
-        </a>
-        <a href="https://github.com/AncyAnnMathews" target="_blank" class="social-btn" title="GitHub">
+        </a>[cite: 1]
+        <a href="https://github.com/AncyAnnMathews" target="_blank" class="social-btn" title="GitHub Repositories">
           <i class="fa-brands fa-github"></i>
-        </a>
+        </a>[cite: 1]
       </div>
     </div>
   </section>
@@ -719,7 +794,7 @@
   <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>&copy; 2026 Ancy Mathews. Built with clean HTML, CSS, & JS.</p>
+      <p>&copy; 2026 Ancy Mathews. Built for performance, analytical clarity, and responsive design.</p>
     </div>
   </footer>
 
@@ -754,10 +829,17 @@
         const updateCount = () => {
           count += speed;
           if (count < target) {
-            stat.innerText = isDecimal ? count.toFixed(2) : Math.ceil(count) + (stat.innerText.includes('%') ? '%' : '');
+            stat.innerText = isDecimal ? count.toFixed(2) : Math.ceil(count);
             setTimeout(updateCount, 30);
           } else {
-            stat.innerText = target + (stat.innerText.includes('Days') ? ' Days' : (stat.nextElementSibling.innerText.includes('Accuracy') ? '%' : ''));
+            const labelText = stat.nextElementSibling.innerText;
+            if (labelText.includes('Accuracy') || labelText.includes('Percentage')) {
+              stat.innerText = target + '%';
+            } else if (labelText.includes('Hourly')) {
+              stat.innerText = target + ' Hrs';
+            } else {
+              stat.innerText = target;
+            }
           }
         };
         updateCount();
@@ -802,17 +884,17 @@
     const skillsChart = new Chart(ctx, {
       type: 'bar',
       data: {
-        labels: ['Python', 'MySQL / SQL', 'Data Preprocessing', 'Machine Learning', 'Data Structures', 'Web Tech'],
+        labels: ['SQL / Database Querying', 'Python (Pandas / NumPy)', 'Time Series Forecasting', 'Data Preprocessing & EDA', 'Machine Learning Algorithms', 'Web Development'],
         datasets: [{
-          label: 'Skill Emphasis Level',
-          data: [90, 85, 88, 82, 80, 75],
+          label: 'Proficiency Level (%)',
+          data: [92, 90, 88, 94, 85, 78],
           backgroundColor: [
-            'rgba(0, 242, 254, 0.6)',
-            'rgba(0, 114, 255, 0.6)',
-            'rgba(0, 242, 254, 0.6)',
-            'rgba(0, 114, 255, 0.6)',
-            'rgba(0, 242, 254, 0.6)',
-            'rgba(0, 114, 255, 0.6)'
+            'rgba(0, 242, 254, 0.7)',
+            'rgba(0, 114, 255, 0.7)',
+            'rgba(0, 242, 254, 0.7)',
+            'rgba(0, 114, 255, 0.7)',
+            'rgba(0, 242, 254, 0.7)',
+            'rgba(0, 114, 255, 0.7)'
           ],
           borderColor: [
             '#00f2fe',
